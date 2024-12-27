@@ -2,7 +2,7 @@
 name = "libmimalloc-sys"
 version = "0.1.39"
 authors = ["Octavian Oncescu <octavonce@gmail.com>"]
-edition = "2018"
+edition = "2021"
 repository = "https://github.com/purpleprotocol/mimalloc_rust/tree/master/libmimalloc-sys"
 keywords = ["allocator", "encrypted-heap", "performance"]
 categories = ["memory-management", "api-bindings"]
@@ -19,8 +19,6 @@ exclude = [
 ]
 
 [dependencies]
-cty = { version = "0.2", optional = true }
-libc = "0.2"
 
 [build-dependencies]
 cc = "1.0"
@@ -30,7 +28,7 @@ secure = []
 debug = []
 debug_in_debug = []
 override = []
-extended = ["cty"]
+extended = []
 arena = []
 local_dynamic_tls = []
 no_thp = []

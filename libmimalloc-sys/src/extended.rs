@@ -1,8 +1,6 @@
 #![allow(nonstandard_style)]
 
-use core::ffi::c_void;
-
-use cty::{c_char, c_int, c_long, c_ulonglong};
+use core::ffi::{c_char, c_int, c_long, c_ulonglong, c_void};
 
 /// The maximum number of bytes which may be used as an argument to a function
 /// in the `_small` family ([`mi_malloc_small`], [`mi_zalloc_small`], etc).
@@ -487,7 +485,7 @@ pub const mi_option_show_stats: mi_option_t = 1;
 /// Print verbose messages to `stderr`.
 pub const mi_option_verbose: mi_option_t = 2;
 
-/// ### The following options are experimental
+// ### The following options are experimental
 
 /// Option (experimental) Use large OS pages (2MiB in size) if possible.
 ///
@@ -1015,7 +1013,7 @@ mod tests {
 
     #[test]
     fn it_calculates_usable_size() {
-        let ptr = unsafe { mi_malloc(32) } as *mut u8;
+        let ptr = unsafe { crate::mi_malloc(32) } as *mut u8;
         let usable_size = unsafe { mi_usable_size(ptr as *mut c_void) };
         assert!(
             usable_size >= 32,
